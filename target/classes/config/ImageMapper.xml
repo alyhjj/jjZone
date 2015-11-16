@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunrise.dao.ImageDao">
+	<resultMap type="com.sunrise.entity.Image"  id="resultImage">
+		<id property="imgId" column="imgId" />
+		<result property="imgAddress" column="imgAddress" />
+		<result property="createTime" column="createTime" />
+		<result property="setTime" column="setTime" />
+		<result property="userId" column="userId" />
+		<result property="photoId" column="photoId" />
+	</resultMap>
+	<select id="selectImage" parameterType="com.sunrise.entity.Image" resultMap="resultImage">
+		select * from Image where userId = #{userId} and photoId is null
+	</select>
+	<update id="updateImageAdress" parameterType="com.sunrise.entity.Image">
+		UPDATE image SET imgAddress=#{imgAddress} WHERE userId = #{userId}
+	</update>
+ 	<insert id="insertImage" parameterType="com.sunrise.entity.Image">
+ 		INSERT INTO image VALUES(null,#{imgAddress},null,null, #{userId},null)
+ 	</insert>
+ 	<select id="selectAllImageByPhotoId" parameterType="com.sunrise.entity.Image" resultMap="resultImage">
+		SELECT * from image WHERE userId = #{userId} and photoId = #{photoId}
+	</select>
+	<select id="selectCountByPhotoId" resultType="Integer">
+		select COUNT(imgId) from Image where userId = #{userId} and photoId = #{photoId}
+	</select>
+ </mapper>

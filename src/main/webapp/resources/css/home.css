@@ -1,0 +1,48 @@
+body{
+		font-size: 15px;
+		width: 1300px;
+}
+/* 鼠标指到li标签出现手掌 */
+li {
+	cursour: pointer;
+}
+
+.sp {
+	color: gray;
+}
+
+#tab1 {
+	display: block;
+}
+
+#tab2 {
+	display: none;
+}
+
+#tab3 {
+	display: none;
+}
+
+#tab4 {
+	display: none;
+}
+
+.usp {
+	color: #403E3B;
+}
+
+.uss {
+	font-size: 15px;
+}
+
+.us {
+	color: #888;
+}
+
+#bod {
+	width: 1347px;
+}
+
+.tup {
+	float: left;
+}

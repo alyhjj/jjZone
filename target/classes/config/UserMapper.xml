@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunrise.dao.UserDao">
+	<resultMap type="com.sunrise.entity.User"  id="resultUser">
+		<id property="userId" column="userId" />
+		<result property="userName" column="userName" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userNick" column="userNick" />
+	</resultMap>
+	<select id="selectUser"  resultMap="resultUser">
+ 		SELECT * from user where userName = #{userName} and userPwd = #{userPwd}
+ 	</select>
+ 	<select id="checkUser"  resultMap="resultUser">
+ 		SELECT * from user where userName = #{userName}
+ 	</select>
+ 	<insert id="insertUser" parameterType="com.sunrise.entity.User">
+ 		INSERT INTO user VALUES(null,#{userName},#{userPwd},#{userNick})
+ 	</insert>
+ </mapper>

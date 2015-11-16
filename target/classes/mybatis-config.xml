@@ -1,0 +1,14 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.sunrise.entity.User" alias="User" />
+		<typeAlias type="com.sunrise.entity.Image" alias="Image" />
+		<typeAlias type="com.sunrise.entity.Photo" alias="Photo" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="config/UserMapper.xml" />
+		<mapper resource="config/ImageMapper.xml" />
+		<mapper resource="config/PhotoMapper.xml" />
+	</mappers>
+</configuration>

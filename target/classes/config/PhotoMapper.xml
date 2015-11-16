@@ -1,0 +1,15 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunrise.dao.PhotoDao">
+	<resultMap type="com.sunrise.entity.Photo"  id="resultPhoto">
+		<id property="photoId" column="photoId" />
+		<result property="photoName" column="photoName" />
+		<result property="photoDescribe" column="photoDescribe" />
+		<result property="createTime" column="createTime" />
+		<result property="setTime" column="setTime" />
+		<result property="userId" column="userId" />
+	</resultMap>
+	<select id="selectPhotoByUserId" resultMap="resultPhoto">
+		select * from photo where userId = #{userId}
+	</select>
+ </mapper>
