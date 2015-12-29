@@ -63,9 +63,6 @@ public class ImageController {
 				
 			}
 		}
-		
-		
-		
 		return new JSONArray(map).toString();
 	}
 	/**
