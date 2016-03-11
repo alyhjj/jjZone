@@ -19,36 +19,47 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#login").click(function() {
-			var userName = $("[name=userName]").val();
-			var userPwd = $("[name=userPwd]").val();
-			if (userName == null || userName == "") {
-				$("#UName").trigger("click");
-			}else if(userPwd == null || userPwd == ""){
-				$("#UPwd").trigger("click");
-			}else{
-				var user = {
-						userName:userName,
-						userPwd:userPwd
-				}
-				$.ajax({
-					url:"<%=basePath%>user/login",
-					type:"post",
-					dataType:"json",
-					data:user,
-					success:function(data){
-						if(data != 1){
-							$("#my-submits").trigger("click");
-						}else{
-							window.location.href="<%=basePath%>user/home";
-						}
-					},error:function(){
-						$("#my-submits").trigger("click");
-					}
-				});
+		//回车事件
+		$(this).keydown(function (e){
+			if(e.which == "13"){
+				login();
 			}
-		});
+		})
+		
+		$("#login").click(function() {
+			login();
+		})
 	});
+	
+	function login(){
+		var userName = $("[name=userName]").val();
+		var userPwd = $("[name=userPwd]").val();
+		if (userName == null || userName == "") {
+			$("#UName").trigger("click");
+		}else if(userPwd == null || userPwd == ""){
+			$("#UPwd").trigger("click");
+		}else{
+			var user = {
+					userName:userName,
+					userPwd:userPwd
+			}
+			$.ajax({
+				url:"<%=basePath%>user/login",
+				type:"post",
+				dataType:"json",
+				data:user,
+				success:function(data){
+					if(data != 1){
+						$("#my-submits").trigger("click");
+					}else{
+						window.location.href="<%=basePath%>user/home";
+					}
+				},error:function(){
+					$("#my-submits").trigger("click");
+				}
+			});
+		}
+	}
 </script>
 </head>
 
